@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Infra - MPD</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/milligram/1.4.1/milligram.css">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/class.informe.js"></script>
+    <script defer src="js/variables.js"></script>
+    <script defer src="js/app.js"></script>
+</head>
+
+<body>
+    <h1 class="center separador">Informes Infra MPD</h1>
+    <div class="div-informe">
+        <h2 class="center separador">Completa los datos solicitados</h2>
+        <label for="inmueble">Selecciona el Inmueble</label>
+        <select id="inmueble">
+            <option selected disabled>...</option>
+
+        </select>
+        <label for="oficina">Selecciona la oficina</label>
+        <select id="oficina">
+            <option selected disabled>...</option>
+
+        </select>
+        <label for="cliente">Usuario Asistido:</label>
+        <input type="text" id="cliente" value="" placeholder="Ingresa el usuario asistido">
+        <label for="comentario">Comentarios:</label>
+        <input type="text" id="comentario" value="" placeholder="Ingresa un comentario">
+        <label for="otraTarea">Tarea realizada:</label>
+        <!-- <input type="text" id="otraTarea" value="" placeholder="Ingresa la tarea realizada"> -->
+        <textarea cols="20" id="otraTarea" rows="5" placeholder="Ingresa la tarea realizada"></textarea><br />
+        <div class="center separador">
+            <button class="button button-outline" id="btnGuardar">Guardar</button>
+        </div>
+        <!-- <div class="center separador">
+            <p class="importe">Precio estimado: $ <span>0.00</span><span class="guardar ocultar"
+                    title="Enviar por Email">📧</span></p>
+        </div> -->
+    </div>
+    <div class="div-informe">
+        <h2 class="center separador" id="informeFinal">Informe completo</h2>
+    </div>
+</body>
+
+</html>
