@@ -20,6 +20,12 @@ const datosCompletos = () => {
     } return true
 }
 
+function limpiarCampos() {
+    cliente.value = ""
+    comentario.value = ""
+    otraTarea.value = ""
+}
+
 const filtrarOficina = (inmuebleId) => {
     const oficinasFiltradas = oficinas.filter((o) => (o.inmueble == inmuebleId));
     // console.log(oficinasFiltradas);
@@ -122,10 +128,6 @@ function SelectOtraTarea() {
         ocultarDiv(divOtraTarea)
         mostrarDiv(divTareaCompleto)
     }
-}
-
-function limpiarCampos() {
-
 }
 
 cargarCombo(inmueble, inmuebles)
