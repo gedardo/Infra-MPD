@@ -7,14 +7,32 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/milligram/1.4.1/milligram.css">
     <link rel="stylesheet" href="css/style.css">
-    <script src="js/class.informe.js"></script>
     <script defer src="js/variables.js"></script>
+    <script defer src="js/usuario.js"></script>
     <script defer src="js/app.js"></script>
 </head>
 
 <body>
     <h1 class="center separador">Informes Infra MPD</h1>
-    <div class="div-informe">
+    
+    <div class="center div-informe" id="div-login">
+        <h2 id="titulo">Login</h2>
+        <div class="login">
+            <p id="parrafo">Usuario</p>
+            <input type="search" id="usuarioNom" placeholder="Ingresa el nombre de usuario" autofocus>
+        </div>
+        <div class="login">
+            <p id="parrafo">Contraseña</p>
+            <input type="password" id="usuarioPass" placeholder="Ingresa la contraseña">
+            <span id="verPass" title="Ver password">👁</span></p>
+        </div>
+        <div class="center separador">
+            <button class="button button-outline" id="loginUsuario">INGRESAR</button>
+            <button class="button button-outline" id="regUsuario">REGISTRAR</button>
+        </div>
+    </div>
+    <h4 id="estadoLogin"></h4>
+    <div class="div-informe ocultar" id="div-informe">
         <h2 class="center separador">Completa los datos solicitados</h2>
         <label for="inmueble">Selecciona el Inmueble</label>
         <select id="inmueble">
@@ -26,23 +44,32 @@
             <option selected disabled>...</option>
 
         </select>
-        <label for="cliente">Usuario Asistido:</label>
-        <input type="text" id="cliente" value="" placeholder="Ingresa el usuario asistido">
-        <label for="comentario">Comentarios:</label>
-        <input type="text" id="comentario" value="" placeholder="Ingresa un comentario">
-        <label for="otraTarea">Tarea realizada:</label>
-        <!-- <input type="text" id="otraTarea" value="" placeholder="Ingresa la tarea realizada"> -->
-        <textarea cols="20" id="otraTarea" rows="5" placeholder="Ingresa la tarea realizada"></textarea><br />
+        <label for="tarea">Selecciona la tarea realizada</label>
+        <select id="tarea">
+            <option selected disabled>...</option>
+
+        </select>
+        <div class="" id="divCompleto">
+            <label for="cliente">Usuario Asistido:</label>
+            <input type="text" id="cliente" value="" placeholder="Ingresa el usuario asistido">
+            <label for="comentario">Comentarios:</label>
+            <input type="text" id="comentario" value="" placeholder="Ingresa un comentario">
+        </div>
+        <div class="ocultar" id="divOtraTarea">
+            <label for="otraTarea">Tarea realizada:</label>
+            <!-- <input type="text" id="otraTarea" value="" placeholder="Ingresa la tarea realizada"> -->
+            <textarea cols="20" id="otraTarea" rows="5" placeholder="Ingresa la tarea realizada"></textarea><br />
+        </div>
         <div class="center separador">
             <button class="button button-outline" id="btnGuardar">Guardar</button>
+            <!-- <button class="button button-outline" id="btnGenerarInforme">Generar Informe</button> -->
         </div>
-        <!-- <div class="center separador">
-            <p class="importe">Precio estimado: $ <span>0.00</span><span class="guardar ocultar"
-                    title="Enviar por Email">📧</span></p>
-        </div> -->
     </div>
-    <div class="div-informe">
-        <h2 class="center separador" id="informeFinal">Informe completo</h2>
+    <div class="div-informe ocultar" id="informeFinal">
+        <h2 class="center separador">Informe completo</h2>
+        <img src="/image/Imagen1.png" class="imagen">
+        <div class="informeFinalClass" id="informeFinalClass">
+        </div>
     </div>
 </body>
 
