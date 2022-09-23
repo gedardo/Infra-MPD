@@ -85,7 +85,7 @@ const tareas = [    { id: 312, nombre: "Instalacion impresora" , descripcion: "S
                     { id: 317, nombre: "Config. de rendimiento" , descripcion: "Se realizan configuraciones de rendimiento en PC de usuario "},
                     { id: 318, nombre: "Acceso a Lex" , descripcion: "Se asiste por inconvenientes para acceso a LEX al usuario "},
                     { id: 319, nombre: "Reinicio PC" , descripcion: "Se asiste por inconvenientes para encender su notebook, se soluciona el problema forzando el reinicio al usuario "},
-                    { id: 320, nombre: "Otra Tarea" , descripcion: ""},
                     { id: 311, nombre: "Reemplazo toner" , descripcion: "Se reemplaza toner de impresora Lexmark ip: "},
+                    { id: 320, nombre: "Otra Tarea" , descripcion: ""},
 ]
 

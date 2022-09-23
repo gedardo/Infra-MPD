@@ -57,8 +57,10 @@ const guardar = () => {
         generarInforme()
         limpiarCampos()
         alert("✅ registro exitoso")
+        cliente.focus()
     } else {
         alert("⛔️ Ingresa el nombre del usuario asistido")
+        cliente.focus()
     }
     // }
 }
@@ -127,7 +129,7 @@ function SelectOtraTarea() {
         banderaCliente = true
         ocultarDiv(divOtraTarea)
         mostrarDiv(divTareaCompleto)
-    }
+    } cliente.focus()
 }
 
 cargarCombo(inmueble, inmuebles)
@@ -138,4 +140,7 @@ btnGuardar.addEventListener("click", guardar)
 // btnGenerarInforme.addEventListener("click", generarInforme)
 inmueble.addEventListener('change', () => { filtrarOficina(inmueble.value) })
 tarea.addEventListener("change", SelectOtraTarea)
-cliente.addEventListener("focus", banderaCliente = true)
+cliente.addEventListener("focus", () => {banderaCliente=true})
+cliente.addEventListener("keypress", (e)=> {(e.key === "Enter") && comentario.focus()})
+comentario.addEventListener("keypress", (e)=> {e.key === "Enter" && guardar()})
+otraTarea.addEventListener("keypress", (e)=> {(e.key === "tab") && guardar.focus()})

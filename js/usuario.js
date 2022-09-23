@@ -11,7 +11,7 @@ function registrarUsuario() {
         if (validarListaUsuarios()) {
             let listUsuarios = JSON.parse(localStorage.getItem("usuarios"))
             if (listUsuarios.find((usuario) => usuario.nombre === inputNombre.value)) {
-                alert("⛔️ El nombre de usuario ya existe, por favor ingrese otro")
+                alert("⛔️ El nombre de usuario ya existe, por favor ingresa otro")
                 return
             }
         }
@@ -19,7 +19,7 @@ function registrarUsuario() {
         while (true) {
             let valor = prompt("Ingresa tu nombre completo")
             if (valor === '' || valor === null) {
-                alert("⛔️ Por favor ingrese un nombre valido")
+                alert("⛔️ Ingresa un nombre valido")
             }
             else {
                 nombCompleto = valor;
@@ -29,10 +29,9 @@ function registrarUsuario() {
         usuarios.push(new Usuario(inputNombre.value, inputPass.value, nombCompleto))
         localStorage.setItem("usuarios", JSON.stringify(usuarios))
         alert("✅ registro exitoso")
-        inputNombre.value = ""
-        inputPass.value = ""
+        loginUsuario()
     } else {
-        alert("⛔️ Falta ingresar un valor")
+        alert("⛔️ Ingresa usuario y contraseña")
     }
 }
 
@@ -67,3 +66,4 @@ btnVerPass.addEventListener("mousedown", () => { inputPass.type = "text" })
 btnVerPass.addEventListener("mouseup", () => { inputPass.type = "password" })
 inputNombre.addEventListener("focus", () => estado.innerText = "")
 inputPass.addEventListener("focus", () => estado.innerText = "")
+inputNombre.addEventListener("keypress", (e)=> {(e.key === "Enter") && inputPass.focus()})
