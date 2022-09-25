@@ -10,16 +10,6 @@ const cargarCombo = (select, array) => {
     }
 }
 
-const datosCompletos = () => {
-    if (banderaCliente) {
-        if (cliente.value != "") {
-            return true
-        } else {
-            return false
-        }
-    } return true
-}
-
 function limpiarCampos() {
     cliente.value = ""
     comentario.value = ""
@@ -33,11 +23,13 @@ const filtrarOficina = (inmuebleId) => {
 }
 
 const guardar = () => {
-    // let continuar = confirm("¿Estas seguro? 🤔")
-    // if (continuar) {
     // Funcion que llama a la API con los datos de la tarea
 
-    if (datosCompletos()) {
+    if (cliente.value || otraTarea.value) {
+        if (comentario.value) {
+            let valor = comentario.value
+            comentario.value = ` ${valor}.`
+        }
         const item = {
             usuarioId: usuarioLogeado,
             inmuebleId: inmueble.value,
@@ -59,7 +51,7 @@ const guardar = () => {
         alert("✅ registro exitoso")
         cliente.focus()
     } else {
-        alert("⛔️ Ingresa el nombre del usuario asistido")
+        alert("⛔️ Faltan ingresar datos IMPORTANTES")
         cliente.focus()
     }
     // }
@@ -68,27 +60,18 @@ const guardar = () => {
 const generarInforme = () => {
     divInformeFinal.innerHTML = ""
     //llamada a la api para obtener tareas del dia x.
-    // const arrayParaInforme = [{
-    //     id: 1,
-    //     oficinaId: 111,
-    //     inmueble: "9 de Julio",
-    //     oficina: "Civil 1",
-    //     texto: "Se realiza ronda de control para controlat djahdfsjkdf ....",        
-    // }];
+
     const arrayParaInforme = arrayTareas.map((t) => (
         {
             inmuebleId: t.inmuebleId,
-            // inmuebleNom: inmuebles.find(i => i.id == t.inmuebleId).descripcion,
             oficinaId: t.oficinaId,
-            // oficinaNom: oficinas.find(i => i.id == t.oficinaId).descripcion,
             textoDivInm: `<div id=${t.inmuebleId}>
                             <br><h3><b>INMUEBLE ${inmuebles.find(i => i.id == t.inmuebleId).descripcion}</h3>
                         </div>`,
             textoDivOfi: `<div id=${t.oficinaId}>
                             <h3><b>${oficinas.find(i => i.id == t.oficinaId).descripcion}</h3>
                         </div>`,
-            textoTarea: `${tabulador}${t.otraTarea}${tareas.find(tar => tar.id == t.tareaId).descripcion}
-            ${t.clienteId} ${t.comentario}. Tarea realizada por ${usuarioLogeado}\n<br><br>`,
+            textoTarea: `${tabulador}${t.otraTarea}${tareas.find(tar => tar.id == t.tareaId).descripcion}${t.clienteId}.${t.comentario} Tarea realizada por ${usuarioLogeado}.\n<br><br>`,
         }
     ))
     console.table(arrayParaInforme)
@@ -122,11 +105,9 @@ function ocultarDiv(div) {
 
 function SelectOtraTarea() {
     if (parseInt(tarea.value) === 320) {
-        banderaCliente = false
         mostrarDiv(divOtraTarea)
         ocultarDiv(divTareaCompleto)
     } else {
-        banderaCliente = true
         ocultarDiv(divOtraTarea)
         mostrarDiv(divTareaCompleto)
     } cliente.focus()
@@ -140,7 +121,7 @@ btnGuardar.addEventListener("click", guardar)
 // btnGenerarInforme.addEventListener("click", generarInforme)
 inmueble.addEventListener('change', () => { filtrarOficina(inmueble.value) })
 tarea.addEventListener("change", SelectOtraTarea)
-cliente.addEventListener("focus", () => {banderaCliente=true})
-cliente.addEventListener("keypress", (e)=> {(e.key === "Enter") && comentario.focus()})
-comentario.addEventListener("keypress", (e)=> {e.key === "Enter" && guardar()})
-otraTarea.addEventListener("keypress", (e)=> {(e.key === "tab") && guardar.focus()})
+cliente.addEventListener("focus", () => { banderaCliente = true })
+cliente.addEventListener("keypress", (e) => { (e.key === "Enter") && comentario.focus() })
+comentario.addEventListener("keypress", (e) => { e.key === "Enter" && guardar() })
+otraTarea.addEventListener("keypress", (e) => { (e.key === "tab") && guardar.focus() })

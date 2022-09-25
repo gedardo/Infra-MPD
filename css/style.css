@@ -33,13 +33,15 @@ h4 {
     color: red;
     display: flex;
     align-items: baseline;
-    justify-content: center;
+    justify-content: flex-end;
+    padding-right: 10%;
 }
 
 .login>input {
     min-width: 50% !important;
     width: 70% !important;
     margin: 10px;
+    /* margin-left: 40px; */
 }
 
 label {

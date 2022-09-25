@@ -31,6 +31,31 @@
             <button class="button button-outline" id="regUsuario">REGISTRAR</button>
         </div>
     </div>
+    <div class="center div-informe ocultar" id="div-registrar">
+        <h2 id="titulo">Registrar</h2>
+        <div class="login">
+            <p id="parrafo">Usuario</p>
+            <input type="search" id="usuarioNomReg" placeholder="Ingresa el nombre de usuario" autofocus>
+        </div>
+        <div class="login">
+            <p id="parrafo">Nombre Completo</p>
+            <input type="search" id="usuarioNomComp" placeholder="Ingresa el nombre conmpleto de usuario" autofocus>
+        </div>
+        <div class="login">
+            <p id="parrafo">Contraseña</p>
+            <input type="password" id="usuarioPassReg" placeholder="Ingresa la contraseña">
+            <span id="verPass2" title="Ver password">👁</span></p>
+        </div>
+        <div class="login">
+            <p id="parrafo">Repetir Contraseña</p>
+            <input type="password" id="usuarioPass2Reg" placeholder="Repetir la contraseña">
+            <span id="verPass3" title="Ver password">👁</span></p>
+        </div>
+        <div class="center separador">
+            <button class="button button-outline" id="regExitoso">REGISTRAR</button>
+            <button class="button button-outline" id="regCancelar">CANCELAR</button>
+        </div>
+    </div>
     <h4 id="estadoLogin"></h4>
     <div class="div-informe ocultar" id="div-informe">
         <h2 class="center separador">Completa los datos solicitados</h2>
@@ -51,14 +76,14 @@
         </select>
         <div class="" id="divCompleto">
             <label for="cliente">Usuario Asistido:</label>
-            <input type="text" id="cliente" value="" placeholder="Ingresa el usuario asistido">
+            <input type="text" id="cliente" value="" placeholder="Ingresa el usuario asistido - IMPORTANTE">
             <label for="comentario">Comentarios:</label>
             <input type="text" id="comentario" value="" placeholder="Ingresa un comentario">
         </div>
         <div class="ocultar" id="divOtraTarea">
             <label for="otraTarea">Tarea realizada:</label>
             <!-- <input type="text" id="otraTarea" value="" placeholder="Ingresa la tarea realizada"> -->
-            <textarea cols="20" id="otraTarea" rows="5" placeholder="Ingresa la tarea realizada"></textarea><br />
+            <textarea cols="20" id="otraTarea" rows="5" placeholder="Ingresa la tarea realizada - IMPORTANTE"></textarea><br />
         </div>
         <div class="center separador">
             <button class="button button-outline" id="btnGuardar">Guardar</button>

@@ -11,19 +11,27 @@ const informeFinal = document.querySelector("#informeFinal")
 const tabulador = ("&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp-&nbsp&nbsp&nbsp&nbsp&nbsp")
 const estado = document.getElementById("estadoLogin")
 const inputNombre = document.querySelector("#usuarioNom")
+const inputNombreReg = document.querySelector("#usuarioNomReg")
+const inputNombreCompleto = document.querySelector("#usuarioNomComp")
 const inputPass = document.querySelector("#usuarioPass")
+const inputPassReg = document.querySelector("#usuarioPassReg")
+const inputPass2Reg = document.querySelector("#usuarioPass2Reg")
 const btnLogin = document.querySelector("#loginUsuario")
 const btnRegistrar = document.querySelector("#regUsuario")
+const btnRegistrarExitoso = document.querySelector("#regExitoso")
+const btnRegistrarCancelar = document.querySelector("#regCancelar")
 const divLogin = document.querySelector("#div-login")
+const divRegistrar = document.querySelector("#div-registrar")
 const divInforme = document.querySelector("#div-informe")
 const divInformeFinal = document.querySelector("#informeFinalClass")
 const divTareaCompleto = document.querySelector("#divCompleto")
 const divOtraTarea = document.querySelector("#divOtraTarea")
 const btnVerPass = document.querySelector("#verPass")
+const btnVerPass2 = document.querySelector("#verPass2")
+const btnVerPass3 = document.querySelector("#verPass3")
 const usuarios = []
 let usuarioLogeado = ""
 const arrayTareas = []
-let banderaCliente = true
 
 class Usuario {
     constructor(nombre, pass, nombreCompleto) {
