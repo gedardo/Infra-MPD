@@ -34,24 +34,34 @@ function registrarUsuario() {
     }
 }
 
-function loginUsuario() {
-    if (validarListaUsuarios()) {
-        let listUsuarios = JSON.parse(localStorage.getItem("usuarios"))
-        if (listUsuarios.find((usuario) => usuario.nombre === inputNombre.value && usuario.pass === inputPass.value)) {
-            divLogin.classList.add("ocultar")
-            estado.innerText = `Bienvenido ${inputNombre.value}`
-            estado.className = ""
-            usuarioLogeado = listUsuarios.find((o) => (o.nombre === inputNombre.value)).nombreCompleto;
-            divInforme.classList.remove("ocultar")
-        } else {
+async function loginUsuario() {
+    const resLogin = await loginApi(inputNombre.value,inputPass.value);
+    if(resLogin) {
+        const currentUser = await getCurrentUser();
+        console.log(currentUser[0]);
+        divLogin.classList.add("ocultar")
+        estado.innerText = `Bienvenido ${currentUser[0].first_name} ${currentUser[0].last_name}`
+        estado.className = ""
+        usuarioLogeado = `${currentUser[0].first_name} ${currentUser[0].last_name}`;
+        divInforme.classList.remove("ocultar")
+    }
+    // if (validarListaUsuarios()) {
+    //     let listUsuarios = JSON.parse(localStorage.getItem("usuarios"))
+    //     if (listUsuarios.find((usuario) => usuario.nombre === inputNombre.value && usuario.pass === inputPass.value)) {
+    //         divLogin.classList.add("ocultar")
+    //         estado.innerText = `Bienvenido ${inputNombre.value}`
+    //         estado.className = ""
+    //         usuarioLogeado = listUsuarios.find((o) => (o.nombre === inputNombre.value)).nombreCompleto;
+    //         divInforme.classList.remove("ocultar")
+        else {
             estado.innerText = "👎 Usuario o contraseña incorrectos"
             estado.className = "text-rojo"
         }
-    } else {
-        alert("⛔️ No existen usuarios registrados")
-        inputNombre.value = ""
-        inputPass.value = ""
-    }
+    // } else {
+    //     alert("⛔️ No existen usuarios registrados")
+    //     inputNombre.value = ""
+    //     inputPass.value = ""
+    // }
 }
 
 btnLogin.addEventListener("click", loginUsuario)
