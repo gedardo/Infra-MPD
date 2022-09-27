@@ -7,7 +7,6 @@ const validarListaUsuarios = () => {
 }
 
 function registrarUsuario() {
-    debugger
     if (inputNombreReg.value && inputPassReg.value && inputPass2Reg.value && inputNombreCompleto.value) {
         if (inputPassReg.value === inputPass2Reg.value) {
             if (validarListaUsuarios()) {
@@ -35,8 +34,8 @@ function registrarUsuario() {
 }
 
 async function loginUsuario() {
-    const resLogin = await loginApi(inputNombre.value,inputPass.value);
-    if(resLogin) {
+    const resLogin = await loginApi(inputNombre.value, inputPass.value);
+    if (resLogin) {
         const currentUser = await getCurrentUser();
         console.log(currentUser[0]);
         divLogin.classList.add("ocultar")
@@ -53,10 +52,10 @@ async function loginUsuario() {
     //         estado.className = ""
     //         usuarioLogeado = listUsuarios.find((o) => (o.nombre === inputNombre.value)).nombreCompleto;
     //         divInforme.classList.remove("ocultar")
-        else {
-            estado.innerText = "👎 Usuario o contraseña incorrectos"
-            estado.className = "text-rojo"
-        }
+    else {
+        estado.innerText = "👎 Usuario o contraseña incorrectos"
+        estado.className = "text-rojo"
+    }
     // } else {
     //     alert("⛔️ No existen usuarios registrados")
     //     inputNombre.value = ""
@@ -71,11 +70,16 @@ inputPass.addEventListener("keypress", (e) => { //e = Objeto global EVENT
     }
 })
 
+function limpiarEstado() {
+    estado.innerText = ""
+    inputNombre.value = ""
+    inputPass.value = ""
+    inputNombreReg.focus()
+}
 
-
-btnRegistrar.addEventListener("click", () => { mostrarDiv(divRegistrar) & ocultarDiv(divLogin) })
+btnRegistrar.addEventListener("click", () => { mostrarDiv(divRegistrar) & ocultarDiv(divLogin) & limpiarEstado() })
 btnRegistrarExitoso.addEventListener("click", registrarUsuario)
-btnRegistrarCancelar.addEventListener("click", () => { mostrarDiv(divLogin) & ocultarDiv(divRegistrar) })
+btnRegistrarCancelar.addEventListener("click", () => { mostrarDiv(divLogin) & ocultarDiv(divRegistrar) & inputNombre.focus()})
 btnVerPass2.addEventListener("mousedown", () => { inputPassReg.type = "text" })
 btnVerPass2.addEventListener("mouseup", () => { inputPassReg.type = "password" })
 btnVerPass3.addEventListener("mousedown", () => { inputPass2Reg.type = "text" })
