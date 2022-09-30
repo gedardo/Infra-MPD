@@ -1,6 +1,5 @@
 "use strict";
 require('dotenv').config();
-
 module.exports = function() {
   return {
     host: process.env.DB_HOST !== undefined ? process.env.DB_HOST : "localhost",
@@ -10,6 +9,6 @@ module.exports = function() {
     database:
       process.env.DB_NAME !== undefined ? process.env.DB_NAME : "mpd_informe",
     port:
-      process.env.PORT !== undefined ? process.env.PORT : "3307"
+      process.env.DB_PORT !== undefined ? process.env.DB_PORT : "3307"
   };
 };
