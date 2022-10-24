@@ -48,10 +48,10 @@ const guardar = () => {
         //Limpiar campos
         generarInforme()
         limpiarCampos()
-        alert("✅ registro exitoso")
+        alertOk("Registro exitoso")
         cliente.focus()
     } else {
-        alert("⛔️ Faltan ingresar datos IMPORTANTES")
+        alertError("Faltan ingresar datos IMPORTANTES")
         cliente.focus()
     }
     // }

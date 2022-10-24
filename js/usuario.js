@@ -12,24 +12,24 @@ function registrarUsuario() {
             if (validarListaUsuarios()) {
                 let listUsuarios = JSON.parse(localStorage.getItem("usuarios"))
                 if (listUsuarios.find((usuario) => usuario.nombre === inputNombreReg.value)) {
-                    alert("⛔️ El nombre de usuario ya existe, por favor ingresa otro")
+                    alertError("El nombre de usuario ya existe, por favor ingresa otro")
                     inputNombreReg.focus()
                     return
                 }
             }
             usuarios.push(new Usuario(inputNombreReg.value, inputPassReg.value, inputNombreCompleto.value))
             localStorage.setItem("usuarios", JSON.stringify(usuarios))
-            alert("✅ registro exitoso")
+            alertOk("Registro exitoso")
             inputNombre.value = inputNombreReg.value
             inputPass.value = inputPassReg.value
             loginUsuario()
             ocultarDiv(divRegistrar)
         } else {
-            alert("⛔️ La contraseña no coincide")
+            alertError("La contraseña no coincide")
             inputPassReg.focus()
         }
     } else {
-        alert("⛔️ Faltan ingresar valores")
+        alertError("Faltan ingresar valores")
     }
 }
 
